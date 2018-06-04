@@ -8,6 +8,8 @@ ConditionPathExists=!/var/lib/turnkey-init/inithooks.service/xen
 [Service]
 Type=oneshot
 StandardInput=tty-force
+StandardOutput=journal+console
+SyslogIdentifier=inithooks
 TTYPath=/dev/tty8
 TTYReset=yes
 TTYVHangup=yes
