@@ -1,13 +1,14 @@
 [Unit]
-Description=inithooks-xen: firstboot and everyboot initialization scripts (xen)
-Before=getty@hvc0.service
+Description=inithooks-lxc: firstboot and everyboot initialization scripts (lxc)
+Before=getty@tty1.service getty@tty1.service getty@tty2.service getty@tty3.service getty@tty4.service getty@tty5.service getty@tty6.service getty@hvc0.service
 ConditionKernelCommandLine=!noinithooks
-ConditionPathExists=/var/lib/turnkey-init/inithooks.service/xen
 
 [Service]
 Type=oneshot
 EnvironmentFile=/etc/default/inithooks
 ExecStart=/bin/sh -c '${INITHOOKS_PATH}/run'
+StandardOutput=syslog
+StandardError=syslog
 SyslogIdentifier=inithooks
 
 [Install]

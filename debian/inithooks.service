@@ -3,7 +3,7 @@ Description=inithooks: firstboot and everyboot initialization scripts
 After=getty@tty8.service
 ConditionKernelCommandLine=!noinithooks
 ConditionVirtualization=!lxc
-ConditionPathExists=!/var/lib/turnkey-init/inithooks.service/xen
+ConditionPathExists=!/var/lib/turnkey-info/inithooks.service/xen
 
 [Service]
 Type=oneshot
