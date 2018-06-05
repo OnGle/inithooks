@@ -15,10 +15,8 @@ TTYReset=yes
 TTYVHangup=yes
 TTYVTDisallocate=yes
 EnvironmentFile=/etc/default/inithooks
-ExecStart=/bin/sh -c '\
-    FGCONSOLE=$(fgconsole); \
-    openvt -f -c 8 -s -w -- ${INITHOOKS_PATH}/run; \
-    chvt $FGCONSOLE'
+ExecStart=/bin/sh -c '${INITHOOKS_PATH}/run;'
+ExecPost=/bin/echo Done!
 
 [Install]
 WantedBy=basic.target
